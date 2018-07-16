@@ -1,0 +1,121 @@
+---
+layout: default
+title: RSVP
+---
+
+{% include slider.html title=page.title subtitle="Just a few questions to help us all enjoy the big day!" image="http://placehold.it/1920x1080" %}
+
+<section class="section-block">
+  <div class="container">
+    <form class="" action="index.html" method="post">
+
+      <h3>Did we even invite you?</h3>
+
+      <div class="form-group">
+        <label for="names">Who all is attending in your part?</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="de-icon-user"></i></div>
+          <input type="text" id="names" name="names" class="form-control ajax-input" placeholder="Janelle, Yami">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="emails">Email addresses of those attending?</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="de-icon-mail-1"></i></div>
+          <input type="text" id="emails" name="emails" class="form-control ajax-input" placeholder="janelle@suchockialonso.com, yami@suchockialonso.com">
+        </div>
+      </div>
+
+      <h3>How are you travelling?</h3>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="flightArrival">Arrival Flight(s)</label>
+            <textarea id="flightArrival" name="flightArrival" class="form-control ajax-input" placeholder="Please include a copy of your arrival flight itinerary" rows="5"></textarea>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="flightDepart">Departure Flight(s)</label>
+            <textarea id="flightDepart" name="flightArrival" class="form-control ajax-input" placeholder="Please include a copy of your depareture flight itinerary" rows="5"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="arrivalMethod">How will you arrive at the chateau on Wednesday? <small>A rental car or bus will be provided from Angers.</small></label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="de-icon-bus-1"></i></div>
+          <input type="text" id="arrivalMethod" name="arrivalMethod" class="form-control ajax-input" placeholder="In a carriage drawn by unicorns...">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="arrivalTime">Anticipated arrival time in Angers?</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="de-icon-clock"></i></div>
+          <input type="text" id="arrivalTime" name="arrivalTime" class="form-control ajax-input" placeholder="12:00 PM">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="postWedding">What are your plans post-wedding?</label>
+        <textarea id="postWedding" name="postWedding" class="form-control ajax-input" placeholder="Will you be extending your stay in France?" rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="emergencyContact">Emergency contact in the States</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="de-icon-medkit"></i></div>
+          <input type="text" id="emergencyContact" name="emergencyContact" class="form-control ajax-input" placeholder="Name, phone number, email">
+        </div>
+      </div>
+
+      <h3>What makes you special?</h3>
+
+      <div class="form-group">
+        <label for="eventsMissing">List all events and meals that you will not be attending</label>
+        <textarea id="eventsMissing" name="eventsMissing" class="form-control ajax-input" placeholder="This does not include breakfasts you may intend to sleep through." rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="hairMakeup">Will you need assitiance with hair and make-up for Masked Affair and/or Wedding Day?</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="de-icon-scissors-1"></i></div>
+          <input type="text" id="hairMakeup" name="hairMakeup" class="form-control ajax-input" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="diets">Dietary restrictions and allergies</label>
+        <textarea id="diets" name="diets" class="form-control ajax-input" placeholder="" rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="items">Additional Items I would like to have in my room</label>
+        <textarea id="items" name="items" class="form-control ajax-input" placeholder="" rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="additional">Any additional requests?</label>
+        <textarea id="additional" name="additional" class="form-control ajax-input" placeholder="" rows="5"></textarea>
+      </div>
+
+      <h3>And the most important question:</h3>
+
+      <div class="form-group">
+        <label for="music">A song that will definitely have you on the dance floor</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="de-icon-music-1"></i></div>
+          <input type="text" id="music" name="music" class="form-control ajax-input" placeholder="Love Story, Taylor Swift (2008)">
+        </div>
+      </div>
+
+    </form>
+  </div>
+</section>
