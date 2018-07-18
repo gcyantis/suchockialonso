@@ -3,11 +3,11 @@ layout: default
 title: RSVP
 ---
 
-{% include slider.html title=page.title subtitle="Just a few questions to help us all enjoy the big day!" image="http://placehold.it/1920x1080" %}
+{% include slider.html title=page.title subtitle="Just a few questions to help us all enjoy the big day!" image="_R3A8842" %}
 
 <section class="section-block">
   <div class="container">
-    <form class="" action="index.html" method="post">
+    <form id="submit-to-google-sheet" name="submit-to-google-sheet">
 
       <h3>Did we even invite you?</h3>
 
@@ -15,7 +15,7 @@ title: RSVP
         <label for="names">Who all is attending in your part?</label>
         <div class="input-group">
         <div class="input-group-addon"><i class="de-icon-user"></i></div>
-          <input type="text" id="names" name="names" class="form-control ajax-input" placeholder="Janelle, Yami">
+          <input type="text" id="names" name="names" class="form-control ajax-input" placeholder="Janelle, Yami" required>
         </div>
       </div>
 
@@ -23,7 +23,7 @@ title: RSVP
         <label for="emails">Email addresses of those attending?</label>
         <div class="input-group">
         <div class="input-group-addon"><i class="de-icon-mail-1"></i></div>
-          <input type="text" id="emails" name="emails" class="form-control ajax-input" placeholder="janelle@suchockialonso.com, yami@suchockialonso.com">
+          <input type="text" id="emails" name="emails" class="form-control ajax-input" placeholder="janelle@suchockialonso.com, yami@suchockialonso.com" required>
         </div>
       </div>
 
@@ -41,7 +41,7 @@ title: RSVP
         <div class="col-md-6">
           <div class="form-group">
             <label for="flightDepart">Departure Flight(s)</label>
-            <textarea id="flightDepart" name="flightArrival" class="form-control ajax-input" placeholder="Please include a copy of your depareture flight itinerary" rows="5"></textarea>
+            <textarea id="flightDepart" name="flightDepart" class="form-control ajax-input" placeholder="Please include a copy of your depareture flight itinerary" rows="5"></textarea>
           </div>
         </div>
 
@@ -116,6 +116,32 @@ title: RSVP
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md-12 text-center animation fadeInUp">
+          <div class="form-group">
+            <input type="submit" id="submitButton"  name="submitButton" class="de-button small" value="SUBMIT">
+          </div>
+        </div>
+      </div>
+
     </form>
   </div>
 </section>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzj-koz3y_cvrifyTKJPWVx5VQgPW7TnAm7gnME2qd8pGjNCHj0/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+
+    $.post(scriptURL, $('#submit-to-google-sheet').serialize())
+      .done(function(d) {
+          console.log('Success!', d);
+          $(location).attr('href','thanks.html');
+      })
+      .fail(function(d) {
+          console.log('Error!', d)
+      });
+  })
+</script>
