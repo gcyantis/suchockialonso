@@ -1,0 +1,41 @@
+---
+layout: default
+title: Gallery
+---
+
+{% include slider.html title=page.title subtitle="We just look so good" image="_R3A8382" addedparams="fp-z=1.1&fit=crop&crop=focalpoint&fp-y=0"%}
+
+<!--CONTENT SECTION-->
+<section id="content">
+
+	<!--GALLERY SECTION-->
+	<section id="gallery-section" class="section-block more-grey">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<!-- START MASONRY -->
+					<div id="masonry-gallery" class="masonry three-col with-gutter">
+
+						<!-- MASONRY GRID SIZER -->
+						<div class="grid-sizer"></div>
+
+						<!-- MASONRY GUTTER SIZER -->
+						<div class="gutter-sizer"></div>
+
+						{% for image in site.data.images %}
+							{% include galleryItem.html image=image.name %}
+						{% endfor %}
+						
+					</div>
+					<!-- END of MASONRY-->
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- END of GALLERY SECTION-->
+
+</section>
