@@ -101,7 +101,7 @@
        		raiseOnDrag: false,
        		icon: ' ',
        		map: map,
-         	labelContent: '<div id="gift-marker" class="de-icon circle medium-size" style="background-color:#fc9e9e;"><i class="de-icon-bus"></i></div>',
+         	labelContent: '<div id="gift-marker" class="de-icon circle medium-size" style="background-color:#96d296;"><i class="de-icon-bus"></i></div>',
        		labelAnchor: new google.maps.Point(27, 27),
        		labelClass: "labels" // the CSS class for the label
      	});
@@ -112,7 +112,7 @@
        		raiseOnDrag: false,
        		icon: ' ',
        		map: map,
-         	labelContent: '<div id="bus-marker" class="de-icon circle medium-size" style="background-color:#e9c24c;"><i class="de-icon-airport"></i></div>',
+         	labelContent: '<div id="bus-marker" class="de-icon circle medium-size" style="background-color:#f9db85;"><i class="de-icon-airport"></i></div>',
        		labelAnchor: new google.maps.Point(27, 27),
        		labelClass: "labels" // the CSS class for the label
      	});
