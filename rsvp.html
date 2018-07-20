@@ -180,8 +180,16 @@ title: RSVP
 
   form.addEventListener('submit', e => {
     e.preventDefault()
+    console.log($('#submit-to-google-sheet').serialize());
 
-    $.post(scriptURL, $('#submit-to-google-sheet').serialize())
+    response = {}
+    fields = ['names','emails','flightArrival','flightDepart','arrivalMethod','arrivalTime','postWedding','emergencyContact','eventsMissing','hairMakeup','diets','items','additional','music'];
+    for (i=0;i<fields.length;i++) {
+      response[fields[i]] = $("[name="+fields[i]+"]").val();
+    }
+    response['activities'] = getCheckValues('activities')
+
+    $.post(scriptURL, response)
       .done(function(d) {
           console.log('Success!', d);
           //$(location).attr('href','thanks.html');
@@ -190,4 +198,8 @@ title: RSVP
           console.log('Error!', d)
       });
   })
+
+  function getCheckValues(name) {
+  	return $("input[name="+name+"]:checked").map(function() {return this.value;}).get().join(", ");
+  }
 </script>
