@@ -118,7 +118,27 @@
      	});
 
 
+			//INFO WINDOWS 2
+			//=======================================================================================
+			var contentString2 = ''+
+			'<div class="info-window-wrapper">'+
+				'<h6>Angers</h6>'+
+				'<div class="info-window-desc">This is where you can take the train to catch the bus to the chateau. We will also head in to town on Friday.</div>'+
+	      	'</div>';
 
+			var marker2_infowindow = new google.maps.InfoWindow({
+	      		content: contentString2,
+				maxWidth: 200,
+				pixelOffset: new google.maps.Size(0,-10)
+	  		});
+
+				//OPEN INFO WINDOWS ON LOAD
+					//marker2_infowindow.open(map,marker2);
+
+			//ON MARKER CLICK EVENTS
+			google.maps.event.addListener(marker2, 'click', function() {
+				marker2_infowindow.open(map,marker2);
+	  		});
 
 		//INFO WINDOWS 1
 		//=======================================================================================
@@ -144,24 +164,7 @@
   		});
 
 
-		//INFO WINDOWS 2
-		//=======================================================================================
-		var contentString2 = ''+
-		'<div class="info-window-wrapper">'+
-			'<h6>Angers</h6>'+
-			'<div class="info-window-desc">This is where you can take the train to catch the bus to the chateau. We will also head in to town on Friday.</div>'+
-      	'</div>';
 
-		var marker2_infowindow = new google.maps.InfoWindow({
-      		content: contentString2,
-			maxWidth: 200,
-			pixelOffset: new google.maps.Size(0,-10)
-  		});
-
-		//ON MARKER CLICK EVENTS
-		google.maps.event.addListener(marker2, 'click', function() {
-			marker2_infowindow.open(map,marker2);
-  		});
 
 
 		//INFO WINDOWS 3
@@ -178,6 +181,7 @@
 			maxWidth: 200,
 			pixelOffset: new google.maps.Size(0,-10)
   		});
+
 
 		//ON MARKER CLICK EVENTS
 		google.maps.event.addListener(marker3, 'click', function() {
