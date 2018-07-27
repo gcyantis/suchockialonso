@@ -1,7 +1,7 @@
 ---
-layout: default
 title: RSVP
 ---
+{% include header.html %}
 
 {% include slider.html title=page.title subtitle="Just a few questions to help us all enjoy the big day!" image="_R3A8831" params="fit=crop&crop=focalpoint&fp-z=1.5&fp-y=0" %}
 
@@ -27,6 +27,25 @@ title: RSVP
         </div>
       </div>
 
+      <div class="form-group">
+        <label>Will you be joining us?</label>
+        <div>
+          <div class="radio">
+            <label class="option-label">
+              <input type="radio" class="attending" name="attending" value="yes">
+              Yes! See you in France!
+            </label>
+          </div>
+          <div class="radio">
+            <label class="option-label">
+              <input type="radio" class="attending" name="attending" value="no">
+              Sorry, I/we are unable to attend this epic wedding.
+            </label>
+          </div>
+        </div>
+      </div>
+
+    <div id="isattending" style="display:none;">
       <h3>How are you travelling?</h3>
 
       <div class="row">
@@ -161,7 +180,7 @@ title: RSVP
           <input type="text" id="music" name="music" class="form-control ajax-input" placeholder="Love Story, Taylor Swift (2008)">
         </div>
       </div>
-
+    </div>
       <div class="row">
         <div class="col-md-12 text-center animation fadeInUp">
           <div class="form-group">
@@ -174,20 +193,36 @@ title: RSVP
   </div>
 </section>
 
+
+{% capture extrascripts %}
+
+
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzj-koz3y_cvrifyTKJPWVx5VQgPW7TnAm7gnME2qd8pGjNCHj0/exec'
   const form = document.forms['submit-to-google-sheet']
+
+  $(document).ready(function() {
+    $('.attending').change(function() {
+      if ($(this).val() === 'yes') 	$('#isattending').show();
+      else $('#isattending').hide();
+
+      $(window).data('plugin_stellar').destroy();
+      $(window).data('plugin_stellar').init();
+    });
+  });
 
   form.addEventListener('submit', e => {
     e.preventDefault()
     console.log($('#submit-to-google-sheet').serialize());
 
     response = {}
-    fields = ['names','emails','flightArrival','flightDepart','arrivalMethod','arrivalTime','postWedding','emergencyContact','eventsMissing','hairMakeup','diets','items','additional','music'];
+    fields = ['names','emails','flightArrival','flightDepart','arrivalTime','postWedding','emergencyContact','eventsMissing','hairMakeup','diets','items','additional','music'];
     for (i=0;i<fields.length;i++) {
       response[fields[i]] = $("[name="+fields[i]+"]").val();
     }
-    response['activities'] = getCheckValues('activities')
+    response['attending'] = getCheckValues('attending');
+    response['arrivalMethod'] = getCheckValues('arrivalMethod');
+    response['activities'] = getCheckValues('activities');
 
     $.post(scriptURL, response)
       .done(function(d) {
@@ -200,6 +235,12 @@ title: RSVP
   })
 
   function getCheckValues(name) {
-  	return $("input[name="+name+"]:checked").map(function() {return this.value;}).get().join(", ");
+    return $("input[name="+name+"]:checked").map(function() {return this.value;}).get().join(", ");
   }
+
 </script>
+
+{% endcapture %}
+
+
+{% include footer.html scripts=extrascripts%}
